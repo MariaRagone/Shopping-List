@@ -1,0 +1,15 @@
+C:\Users\maria\source\repos\Lab  006 SHOPPING LIST\Lab  006 SHOPPING LIST\bin\Debug\net6.0\Lab  006 SHOPPING LIST.exe
+C:\Users\maria\source\repos\Lab  006 SHOPPING LIST\Lab  006 SHOPPING LIST\bin\Debug\net6.0\Lab  006 SHOPPING LIST.deps.json
+C:\Users\maria\source\repos\Lab  006 SHOPPING LIST\Lab  006 SHOPPING LIST\bin\Debug\net6.0\Lab  006 SHOPPING LIST.runtimeconfig.json
+C:\Users\maria\source\repos\Lab  006 SHOPPING LIST\Lab  006 SHOPPING LIST\bin\Debug\net6.0\Lab  006 SHOPPING LIST.dll
+C:\Users\maria\source\repos\Lab  006 SHOPPING LIST\Lab  006 SHOPPING LIST\bin\Debug\net6.0\Lab  006 SHOPPING LIST.pdb
+C:\Users\maria\source\repos\Lab  006 SHOPPING LIST\Lab  006 SHOPPING LIST\obj\Debug\net6.0\Lab  006 SHOPPING LIST.csproj.AssemblyReference.cache
+C:\Users\maria\source\repos\Lab  006 SHOPPING LIST\Lab  006 SHOPPING LIST\obj\Debug\net6.0\Lab  006 SHOPPING LIST.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\maria\source\repos\Lab  006 SHOPPING LIST\Lab  006 SHOPPING LIST\obj\Debug\net6.0\Lab  006 SHOPPING LIST.AssemblyInfoInputs.cache
+C:\Users\maria\source\repos\Lab  006 SHOPPING LIST\Lab  006 SHOPPING LIST\obj\Debug\net6.0\Lab  006 SHOPPING LIST.AssemblyInfo.cs
+C:\Users\maria\source\repos\Lab  006 SHOPPING LIST\Lab  006 SHOPPING LIST\obj\Debug\net6.0\Lab  006 SHOPPING LIST.csproj.CoreCompileInputs.cache
+C:\Users\maria\source\repos\Lab  006 SHOPPING LIST\Lab  006 SHOPPING LIST\obj\Debug\net6.0\Lab  006 SHOPPING LIST.dll
+C:\Users\maria\source\repos\Lab  006 SHOPPING LIST\Lab  006 SHOPPING LIST\obj\Debug\net6.0\refint\Lab  006 SHOPPING LIST.dll
+C:\Users\maria\source\repos\Lab  006 SHOPPING LIST\Lab  006 SHOPPING LIST\obj\Debug\net6.0\Lab  006 SHOPPING LIST.pdb
+C:\Users\maria\source\repos\Lab  006 SHOPPING LIST\Lab  006 SHOPPING LIST\obj\Debug\net6.0\Lab  006 SHOPPING LIST.genruntimeconfig.cache
+C:\Users\maria\source\repos\Lab  006 SHOPPING LIST\Lab  006 SHOPPING LIST\obj\Debug\net6.0\ref\Lab  006 SHOPPING LIST.dll
