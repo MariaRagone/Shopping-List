@@ -1,109 +1,106 @@
-﻿using System.Diagnostics;
-using System.Threading.Tasks;
-//VARIABLES
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.Design;
+using System.Linq;
+
+// ...
+
 decimal total = 0;
-Console.WriteLine("Welcome to my store.");
 
-//DICTIONARY - store list of items and prices
-Dictionary<string, decimal> store = new Dictionary<string, decimal> //store is the collection of items
-//store.Add("apple", 0.99);
-//store.Add("chicken", 4.99);
-//store.Add("lettuce", 2.49);
-//store.Add("cheese", 5.29);
-//store.Add("cherries", 3.00);
-//store.Add("strawberries", 2.99);
-//store.Add("cake", 10.99);
-//store.Add("icecream", 3.99);
+Console.WriteLine("Welcome to Maria's Humorous Haberdashery for Humans.");
+
+// Dictionary - store list of items and prices
+Dictionary<string, decimal> store = new Dictionary<string, decimal>
 {
-    { "apple", 0.99m },
-    { "chicken", 4.99m },
-    { "lettuce", 2.49m },
-    { "cheese", 5.29m},
-    { "cherries", 3.00m},
-    { "strawberries", 2.99m},
-    { "cake", 10.99m},
-    { "icecream", 3.99m}
+    // Start with some items and prices
+    // store.Add("Ravioli", 17.99)  //can also add
+    { "Zany Zoink Zapper", 119.99m },
+    { "Shuffle and Sniff Bacon Slippers", 54.99m },
+    { "Nostalgia Scented Air Freshener", 2.49m },
+    { "Soup-er Hero Supper & Snack Ladle", 5.29m },
+    { "Snooze Master Reverse Alarm Clock", 153.00m },
+    { "Flame-Defiant Toaster", 72.99m },
+    { "Chatter Leaf Talking Houseplant", 10.99m },
+    { "Unicorn Glitter Perfume", 45.00m },
+    { "Booty Bliss Buzzing Butt-erfly Chair", 749.99m }
 };
-//Console.WriteLine(store["chicken"]);
 
+// View the store list
+Console.WriteLine(String.Format("{0,5} {1,-35} {2,10}", "Number", "Item", "Price"));
+Console.WriteLine(String.Format("{0,5} {1,-35} {2,10}", "------", "----", "-----"));
 
-
-Console.WriteLine("Enter an item name.");
-
-
-//view the store list
-Console.WriteLine(String.Format("{0,15} {1,15}", "Item", "Price"));
-Console.WriteLine(String.Format("{0,15} {1,15}", "------", "------"));
-
+// create a way to show a number next to the menu item
+int number = 1;
+//create the list
 foreach (KeyValuePair<string, decimal> kvp in store)
 {
-    Console.WriteLine(String.Format("{0,15} {1,15}", kvp.Key, kvp.Value));
+    Console.WriteLine(String.Format("{0,5}. {1,-35} {2,10}", number, kvp.Key, kvp.Value));
+    number++; // Add index every time
 }
 
-//ASK THE USER TO ENTER AN ITEM NAME
+//create empty list to add into later
 List<string> cart = new List<string>();
+
+// get user input
+// Ask the user to enter an item number
 while (true)
 {
-    Console.WriteLine("What do you want to add to your cart?");
-    string item = Console.ReadLine().ToLower().Trim();
-    if (store.ContainsKey(item)) //call up the dictionary "store" and look for the user input
+    Console.WriteLine("\nEnter an item number to add to your cart.");
+    string input = Console.ReadLine().Trim();
+    //if(store.ContainsKey(input)
+
+    //Console.WriteLine(store.ElementAt(int.Parse(numberChoice)).Key);
+    //tryparse is a method that tries the input without an exception. if it can then = true
+    if (int.TryParse(input, out int numberChoice) && numberChoice >= 1 && numberChoice <= store.Count)
     {
-        //display the item to add to the cart
-        Console.WriteLine($"You added {item} for {store[item]} to your cart"); //inside [] is the key
-
-        //add item to the shopping cart
-        //LIST - store user choices in a shopping cart
-        
-
+        string item = store.ElementAt(numberChoice - 1).Key;
+        Console.WriteLine($"You added {item} for {store[item]} to your cart");
         cart.Add(item);
-       
     }
-    else
+    else //if user choice is invalid
     {
-        Console.WriteLine("item not found");
+        Console.WriteLine("Invalid item number. Please try again.");
     }
 
-
-    //ask user if they want to add something else
+    // Ask user if they want to add something else
     Console.WriteLine("Do you want to add something else? y/n");
     string answer = Console.ReadLine().ToLower().Trim();
     if (answer == "n")
     {
-        //create a new list for the organized cart
-        //display the cart
+        // Display the cart
         Console.Clear();
         Console.WriteLine("Here is your cart");
         Console.WriteLine("*****************");
-        Console.WriteLine(String.Format("{0,10} {1,10}", "Item", "Price"));
-        Console.WriteLine(String.Format("{0,10} {1,10}", "------", "------"));
+        Console.WriteLine(String.Format("{0,-35} {1,10}", "Item", "Price"));
+        Console.WriteLine(String.Format("{0,-35} {1,10}", "------", "------"));
 
-        foreach (string c in cart) // display the items in the cart
+        foreach (string c in cart)
+        //foreach (string c in cart.OrderByDescending(c => store[c])) // Display the items in the cart
         {
-
             total += store[c];
-            Console.WriteLine(String.Format("{0,10} {1,10}", c, store[c]));
-            //Console.WriteLine(String.Format("{0,10} {1,10}", c, store[item]).OrderByDescending(x => x));//prints the entire list
-            Console.WriteLine(c);
+            Console.WriteLine(String.Format("{0,-35} {1,10}", c, store[c]));
         }
-        //average total == store[item].Count
-        Console.WriteLine($"Please pay: {total}");
-        // Display the most and least expensive items
-        var sortedCart = cart.OrderBy(c => store[c]);
-        var mostExpensive = sortedCart.Last();
-        var leastExpensive = sortedCart.First();
-
-        Console.WriteLine($"Most expensive item: {mostExpensive}: {store[mostExpensive]}");
-        Console.WriteLine($"Least expensive item: {leastExpensive}: {store[leastExpensive]}");
-
-        break;
-        break; //stops asking if they want to add something to the cart
         
+        //display the total 
+        Console.WriteLine($"\nPlease pay: {total}");
+
+        List<string> sortedCart = cart.OrderBy(c => store[c]).ToList();
+        // Display the most and least expensive items
+        string mostExpensive = sortedCart.Last();
+        string leastExpensive = sortedCart.First();
+
+        Console.WriteLine($"Most expensive item: {mostExpensive} @ {store[mostExpensive]}");
+        Console.WriteLine($"Least expensive item: {leastExpensive} @ {store[leastExpensive]}");
+
+        break; // Stop asking if they want to add something to the cart
     }
     else if (answer == "y")
     {
-        continue; //keeps asking if they want to add something to the cart
+
+    }
+    else 
+    {
+        Console.WriteLine("Invalid response.");
+        break;
     }
 }
-
-//METHOD
-static bool Continue(){    while (true)    {        string x = Console.ReadLine().ToLower().Trim();        if ("yes".Contains(x))        {            return true;        }        else if ("no".Contains(x))        {            return false;        }        else        {            Console.WriteLine("Invalid response. Please try again. y/n");        }    }}
